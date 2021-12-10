@@ -13,7 +13,8 @@ fun getGreeting(): String {
 // NOTE: single expression function
 fun getGreetingSimple(): String = "Hello Kotlin"
 
-fun sayHello(greeting: String, itemToGreet: String) {
+// NOTE: vararg는 ...rest 와 비슷한 문법
+fun sayHello(greeting: String, vararg itemToGreet:String) {
     // val msg = "Hello " + itemToGreet
     val msg = "$greeting $itemToGreet"
     println(msg)
@@ -40,7 +41,8 @@ fun main() {
     println(result)
     println(getGreeting())
 
-    sayHello("Hey", itemToGreet = yourname)
+    // NOTE: * 는 spread 연산자
+    sayHello("Hey", itemToGreet = *arrayOf(yourname))
     sayHello("Hello", yourname)
 
     println("========== For ==========")
@@ -64,4 +66,11 @@ fun main() {
     interstingThings.forEach { println(it) }
 
 
+    sayHello("Hi", "Kotlin", "Programming")
+
+
+    val person = Person("Nate", "Ebel");
+    person.lastName
+    person.firstName
+    person.nickName
 }
